@@ -2,8 +2,9 @@ package com.go2it.edu.hibernateexample.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
-@Entity
+@Entity(name="merchant")
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,8 @@ public class Merchant {
     //@Column(name=“sumToSentFromDB”)
     private Double sent;
     private java.sql.Date lastSent;
+    @OneToMany(mappedBy="merchant", fetch = FetchType.EAGER)
+    private Collection<Payment> payments;
 
     public Merchant() {
     }
@@ -111,6 +114,14 @@ public class Merchant {
 
     public void setLastSent(Date lastSent) {
         this.lastSent = lastSent;
+    }
+
+    public Collection<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Collection<Payment> payments) {
+        this.payments = payments;
     }
 }
 
