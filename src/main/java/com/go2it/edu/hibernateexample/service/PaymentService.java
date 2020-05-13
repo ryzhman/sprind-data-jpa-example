@@ -14,4 +14,9 @@ public class PaymentService implements IPaymentService {
     public Payment findById(int id) {
         return repository.findById(id);
     }
+
+    @Override
+    public void save(Payment p) {
+        repository.save(p);
+    }
 }

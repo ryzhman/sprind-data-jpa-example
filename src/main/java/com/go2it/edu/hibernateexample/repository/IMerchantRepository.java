@@ -11,5 +11,7 @@ public interface IMerchantRepository {
     List<Result> getTotalReport();
 
     List<Merchant> getSortedByNeedToPay();
+
+    void save(Merchant m);
 }
 

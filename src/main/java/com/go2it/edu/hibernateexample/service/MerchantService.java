@@ -6,6 +6,7 @@ import com.go2it.edu.hibernateexample.repository.MerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -15,6 +16,12 @@ public class MerchantService implements IMerchantService {
 
     public Merchant findById(int id) {
         return merchantRepository.findById(id);
+    }
+
+    @Transactional
+    @Override
+    public void save(Merchant m) {
+        merchantRepository.save(m);
     }
 
     @Override

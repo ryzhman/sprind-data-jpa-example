@@ -34,5 +34,9 @@ public class MerchantRepository implements IMerchantRepository {
         return query.getResultList();
     }
 
+    @Override
+    public void save(Merchant m) {
+        em.persist(m);
+    }
 }
 

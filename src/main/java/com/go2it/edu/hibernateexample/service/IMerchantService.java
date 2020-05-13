@@ -8,6 +8,8 @@ import java.util.List;
 public interface IMerchantService {
     public Merchant findById(int id);
 
+    void save(Merchant m);
+
     List<Result> getTotalReport();
 
     List<Merchant> getSortedByNeedToPay();

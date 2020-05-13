@@ -5,4 +5,5 @@ import com.go2it.edu.hibernateexample.entity.Payment;
 public interface IPaymentRepository {
      Payment findById(int id);
 
+     void save(Payment p);
 }
