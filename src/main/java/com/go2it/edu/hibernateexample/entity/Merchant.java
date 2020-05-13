@@ -16,7 +16,6 @@ public class Merchant {
     private String account;
     private Double charge;
     private Short period;
-    @Transient
     private Double minSum;
     private Double needToSend;
     //@Column(name=“sumToSentFromDB”)

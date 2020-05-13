@@ -1,5 +1,7 @@
 package com.go2it.edu.hibernateexample.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -13,9 +15,12 @@ public class Payment {
     private double total;
     private String goods;
     private java.sql.Date dt;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "merchantId")
     private Merchant merchant;
+    @ManyToOne
+    @JoinColumn(name = "customerId")
+    private Customer customer;
 
     public Payment() {
     }
@@ -66,6 +71,14 @@ public class Payment {
 
     public void setMerchant(Merchant merchant) {
         this.merchant = merchant;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
