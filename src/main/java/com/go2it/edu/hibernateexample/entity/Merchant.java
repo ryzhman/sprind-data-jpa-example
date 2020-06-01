@@ -8,7 +8,7 @@ import java.util.Collection;
 public class Merchant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private String bankName;
     private String swift;
@@ -27,11 +27,11 @@ public class Merchant {
     public Merchant() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

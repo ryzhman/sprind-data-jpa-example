@@ -8,7 +8,7 @@ public class Result {
     public Result() {
     }
 
-    public Result(String name, double sum, long count) {
+    public Result(String name, long count, double sum) {
         this.name = name;
         this.sum = sum;
         this.count = count;
