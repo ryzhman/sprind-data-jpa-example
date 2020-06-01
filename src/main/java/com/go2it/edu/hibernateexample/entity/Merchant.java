@@ -122,5 +122,23 @@ public class Merchant {
     public void setPayments(Collection<Payment> payments) {
         this.payments = payments;
     }
+
+    @Override
+    public String toString() {
+        return "Merchant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", bankName='" + bankName + '\'' +
+                ", swift='" + swift + '\'' +
+                ", account='" + account + '\'' +
+                ", charge=" + charge +
+                ", period=" + period +
+                ", minSum=" + minSum +
+                ", needToSend=" + needToSend +
+                ", sent=" + sent +
+                ", lastSent=" + lastSent +
+                ", payments=" + payments +
+                '}';
+    }
 }
 
