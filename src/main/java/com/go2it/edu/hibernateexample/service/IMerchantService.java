@@ -4,9 +4,10 @@ import com.go2it.edu.hibernateexample.entity.Merchant;
 import com.go2it.edu.hibernateexample.entity.dto.Result;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IMerchantService {
-    public Merchant findById(int id);
+    Optional<Merchant> findById(long id);
 
     void save(Merchant m);
 

@@ -5,11 +5,14 @@ import com.go2it.edu.hibernateexample.repository.ICustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class CustomerService implements ICustomerService{
+public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
-    public Customer findById(int i) {
+
+    public Optional<Customer> findById(long i) {
         return customerRepository.findById(i);
     }
 }

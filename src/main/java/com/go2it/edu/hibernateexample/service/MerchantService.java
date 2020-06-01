@@ -2,19 +2,21 @@ package com.go2it.edu.hibernateexample.service;
 
 import com.go2it.edu.hibernateexample.entity.Merchant;
 import com.go2it.edu.hibernateexample.entity.dto.Result;
-import com.go2it.edu.hibernateexample.repository.MerchantRepository;
+import com.go2it.edu.hibernateexample.repository.IMerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MerchantService implements IMerchantService {
     @Autowired
-    private MerchantRepository merchantRepository;
+    private IMerchantRepository merchantRepository;
 
-    public Merchant findById(int id) {
+    @Override
+    public Optional<Merchant> findById(long id) {
         return merchantRepository.findById(id);
     }
 
@@ -26,12 +28,11 @@ public class MerchantService implements IMerchantService {
 
     @Override
     public List<Result> getTotalReport() {
-       return merchantRepository.getTotalReport();
+        return merchantRepository.getTotalReport();
     }
 
     @Override
     public List<Merchant> getSortedByNeedToPay() {
-        return merchantRepository.getSortedByNeedToPay();
+        return merchantRepository.findAllByOrderByNeedToSend();
     }
 }
-
